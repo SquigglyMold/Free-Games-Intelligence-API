@@ -18,6 +18,20 @@ const welcomePayload = {
   ],
 };
 
+function isRootPath(path: string): boolean {
+  const p = (path || '').replace(/\?.*$/, '').replace(/\/+$/, '') || '/';
+  return p === '/' || p === '' || p === '/api';
+}
+
+app.use((req: Request, res: Response, next) => {
+  if (req.method !== 'GET') return next();
+  const path = (req.url ?? req.path ?? '/').split('?')[0] || '/';
+  if (isRootPath(path)) {
+    return res.json(welcomePayload);
+  }
+  next();
+});
+
 app.get('/', (_req: Request, res: Response) => res.json(welcomePayload));
 app.get('/api', (_req: Request, res: Response) => res.json(welcomePayload));
 
