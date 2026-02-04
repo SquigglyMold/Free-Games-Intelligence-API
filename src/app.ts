@@ -7,18 +7,19 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.get('/', (_req: Request, res: Response) => {
-  res.json({
-    message: 'Welcome to the Free Games Intelligence API',
-    documentation: 'Use the endpoints below to get current free games from the Epic Games Store.',
-    endpoints: [
-      { method: 'GET', path: '/api/health', description: 'Health check. Returns { "status": "ok" }' },
-      { method: 'GET', path: '/api/free-games', description: 'List all currently free Epic games. Query: limit (optional)' },
-      { method: 'GET', path: '/api/free-games/search', description: 'Search free games by name. Query: type (required), limit (optional)' },
-      { method: 'GET', path: '/api/free-games/:slug', description: 'Get a single free game by slug' },
-    ],
-  });
-});
+const welcomePayload = {
+  message: 'Welcome to the Free Games Intelligence API',
+  documentation: 'Use the endpoints below to get current free games from the Epic Games Store.',
+  endpoints: [
+    { method: 'GET', path: '/api/health', description: 'Health check. Returns { "status": "ok" }' },
+    { method: 'GET', path: '/api/free-games', description: 'List all currently free Epic games. Query: limit (optional)' },
+    { method: 'GET', path: '/api/free-games/search', description: 'Search free games by name. Query: type (required), limit (optional)' },
+    { method: 'GET', path: '/api/free-games/:slug', description: 'Get a single free game by slug' },
+  ],
+};
+
+app.get('/', (_req: Request, res: Response) => res.json(welcomePayload));
+app.get('/api', (_req: Request, res: Response) => res.json(welcomePayload));
 
 app.use('/api', apiRouter);
 
