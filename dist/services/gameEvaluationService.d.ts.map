@@ -1,0 +1,1 @@
+{"version":3,"file":"gameEvaluationService.d.ts","sourceRoot":"","sources":["../../src/services/gameEvaluationService.ts"],"names":[],"mappings":"AAAA;;;GAGG;AAEH,OAAO,KAAK,EAAE,cAAc,EAAE,gBAAgB,EAAE,MAAM,UAAU,CAAC;AA+EjE;;;GAGG;AACH,wBAAgB,kBAAkB,CAAC,CAAC,EAAE,cAAc,GAAG,gBAAgB,CActE;AAED;;GAEG;AACH,wBAAgB,mBAAmB,CAAC,KAAK,EAAE,cAAc,EAAE,GAAG,gBAAgB,EAAE,CAE/E"}
